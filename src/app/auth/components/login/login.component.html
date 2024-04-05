@@ -1,0 +1,39 @@
+<div class="formbackground">
+  <div class="formcontent">
+    <div>
+      <img src="https://employeeportal.sankeysolutions.com/images/sankey_logo.png" />
+    </div>
+    <form class="example-form" [formGroup]="logform" (submit)="onsubmit(logform.value)">
+
+      <h2>Sign In</h2>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email">
+        <mat-error *ngIf="logform.get('email')?.hasError('required')">Email is required</mat-error>
+        <mat-error *ngIf="logform.get('email')?.hasError('email')">Invalid email format</mat-error>
+        <mat-error *ngIf="logform.get('email')?.hasError('pattern')">Invalid email format</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="{{ hidePassword ? 'password' : 'text' }}" formControlName="pass"
+          (keydown)="onPasswordChange($event)">
+        <button mat-icon-button matSuffix (click)="togglePassword()">
+          <mat-icon class="mat-icon-style">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <mat-error *ngIf="logform.get('pass')?.hasError('required')">Password is required</mat-error>
+
+      </mat-form-field>
+      <div class="button-container">
+
+        <button type="submit" mat-raised-button color="primary" label="Login" [disabled]="!logform.valid">Login</button>
+
+        <span (click)="openForgotPasswordDialog()">Forgot Password</span>
+      </div>
+
+    </form>
+    <div class="error-message">
+      <span *ngIf="credentialError">Sorry, your password was incorrect. Please double-check your password.</span>
+    </div>
+  </div>
+</div>

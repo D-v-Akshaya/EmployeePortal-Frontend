@@ -1,0 +1,169 @@
+.sidenav-container {
+  height: 100vh;
+  /* background-color: #0e77f478 !important; */
+  overflow: hidden;
+}
+
+/* Sidebar content */
+/* .nav-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    align-items: center;
+  } */
+
+
+
+/* Toolbar button */
+/* .sidenav-content mat-toolbar button.example-icon {
+    margin: 10px;
+  } */
+
+mat-toolbar {
+  background-color: #0e77f478 !important;
+  z-index: 1 !important;
+}
+
+/* Main content area */
+/* .mat-sidenav-content {
+    padding: 20px;
+  } */
+
+/* .mat-drawer-container {
+    
+  } */
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+
+.sidenavs {
+  min-width: 300px;
+}
+
+.sidenavs h2 {
+  font-weight: bold;
+}
+
+.drawer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  background: linear-gradient(to bottom right, #3498db, #87ceeb);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  /* background-color: #0e77f478; */
+  padding: 0% 10%;
+  padding-top: 13px;
+}
+
+/* .drawer-container  .bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  } */
+
+.title h2 {
+  text-align: center;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  /* align-items: center; */
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  position: relative; /* Added to make ::before absolute */
+}
+
+ a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* Initial position to be hidden */
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  transition: left 0.3s ease; /* Transition for left property */
+  z-index: -1; /* Place it behind the link text */
+  border-radius: 5px;
+}
+
+ a:hover::before {
+  left: 0; /* Move it to the right on hover */
+}
+
+
+.bottom {
+  display: flex;
+  /* background-color: #0e77f478; */
+  cursor: pointer;
+}
+
+.active-link {
+  /* background-color: #ffcc00; */
+}
+.routes {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  position: relative;
+}
+
+.routes span {
+  font-size: 20px;
+  position: relative; /* Add position relative to the span */
+  transition: underline 0.3s ease; /* Transition the text-decoration property */
+}
+
+.routes::before {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Position the pseudo-element below the text */
+  left: 0;
+  width: 100%;
+  height: 3px; /* Set the height of the underline */
+  background-color: #77d9ff;
+  transform: scaleX(0); /* Initially scale the underline to hide it */
+  transform-origin: left; /* Set the origin of the transform */
+  transition: transform 0.3s ease; /* Transition the transform property */
+  border-radius: 20px;
+}
+
+.routes:hover span {
+  cursor: pointer;
+  text-decoration: none; /* Show underline on hover */
+}
+
+.routes:hover::before {
+  transform: scaleX(1); /* Expand the underline on hover */
+}
+
+.right-corner{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 20px;
+  gap:0px;
+}
+
+.right-corner span{
+  font-size: 14px;
+}

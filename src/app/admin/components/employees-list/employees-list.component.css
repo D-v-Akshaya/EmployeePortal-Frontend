@@ -1,0 +1,47 @@
+.popup{
+    display:block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popupcontent{   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    position: relative;
+    background-color: #fff;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    top: 20px;
+}
+
+.cancelbutton{
+    border-radius: 40px;
+    z-index: 2;
+    background-color: red;
+    margin-left: auto;
+    border-color: red;
+}
+
+@media screen and (max-width:700px) {
+
+    .popupcontent {
+    width: 80%;
+  }
+}
+.title{
+    display: flex;
+    
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 30px;
+
+}

@@ -1,0 +1,15 @@
+<div class="title">
+    <h2>Employee Details</h2>
+    <!-- <button mat-fab extended style="margin-left: auto; background-color: rgb(19, 144, 175); color: aliceblue;"
+       >
+       
+    </button> -->
+    <button mat-mini-fab (click)="openAddEmployeeForm()" color="primary" aria-label="Example icon button with a delete icon">
+        <mat-icon  >add</mat-icon>
+      </button>
+</div>
+
+
+<app-table-with-actions [dataSource]="yourDataSource" [displayedColumns]="yourDisplayedColumns"
+    [actionButtons]="studentlistActionButtons"></app-table-with-actions>
+

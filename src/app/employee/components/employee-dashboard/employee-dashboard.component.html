@@ -1,0 +1,51 @@
+
+
+<mat-card class="main-card">
+    
+    <div class="profile_container_parts">
+        <img mat-card-image src="/assets/profileimg.webp" alt="Employee Profile ">
+        <mat-card-title>{{first_name|titlecase}} {{last_name|titlecase}}</mat-card-title>
+        <mat-card-subtitle>Employe Id : {{emp_id}}</mat-card-subtitle>
+    </div>
+
+    <div class="profile_container_parts">
+        <mat-card-content>
+            <div class="profile_line">
+                <mat-card>
+                    <mat-card-content> Employee Id:</mat-card-content>
+                    <mat-card-content> {{emp_id}}</mat-card-content>
+                </mat-card>
+                <mat-card>
+                    <mat-card-content>Email: </mat-card-content>
+                    <mat-card-content>{{email}}</mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="profile_line">
+                <mat-card>
+                    <mat-card-content> Blood group:</mat-card-content>
+                    <mat-card-content> {{blood_group}}</mat-card-content>
+                </mat-card>
+                <mat-card>
+                    <mat-card-content> Address:</mat-card-content>
+                    <mat-card-content>{{address}}</mat-card-content>
+                </mat-card>
+                <mat-card>
+                    <mat-card-content> Contact No.:</mat-card-content>
+                    <mat-card-content>{{contact_no}}</mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="profile_line">
+                <mat-card>
+                    <mat-card-content> Date_of_birth:</mat-card-content>
+                    <mat-card-content>{{date_of_birth}}</mat-card-content>
+                </mat-card>
+                <mat-card>
+                    <mat-card-content> Designation:</mat-card-content>
+                    <mat-card-content>{{designation}}</mat-card-content>
+                </mat-card>
+            </div>
+        </mat-card-content>
+    </div>
+</mat-card>

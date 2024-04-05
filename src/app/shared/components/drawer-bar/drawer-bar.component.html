@@ -1,0 +1,53 @@
+<mat-drawer-container class="sidenav-container">
+    <mat-drawer [mode]="isDesktop ? 'side' : 'push'" [opened]="isDesktop ? true : false" class="sidenavs" #sidenav>
+
+        <div class="drawer-container">
+
+            <!-- <div class="title">
+                <h2>Hello, {{titlename | titlecase}}</h2>
+            </div> -->
+
+            <div class="nav-bar">
+                <div>
+                    <img src="https://sankeysolutions.com/assets/logo.png" />
+                </div>
+                <div class="routes" (click)="isDesktop ? null : sidenav.toggle()" *ngFor="let route of pagesRoutes"
+                    [routerLink]="route.link" [routerLinkActive]="'active-link'">
+                    <mat-icon>{{ route.icon }}</mat-icon> <!-- This line adds the icon -->
+                    <span>{{ route.label }}</span>
+                </div>
+            </div>
+
+            <div class="flex-grow"></div>
+
+            <div style="display: flex; align-items: center; cursor: pointer;" class="bottom" (click)="logout()">
+
+                <h2 style="margin: 0;">Logout</h2>
+
+                <button *ngIf="titlename !== 'Guest'" mat-icon-button class="example-icon logout-icon"
+                    aria-label="Logout">
+                    <mat-icon>exit_to_app</mat-icon>
+                </button>
+            </div>
+        </div>
+
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <mat-toolbar>
+
+            <button [disabled]="isDesktop" mat-icon-button class="example-icon"
+                aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <h1 *ngIf="role.toLowerCase() === 'admin'">Admin Portal</h1>
+            <h1 *ngIf="role.toLowerCase() !== 'admin'">Employee Portal</h1>
+            <div class="flex-grow"></div>
+            <div class="right-corner">
+                <h1>Hello, {{ titlename | titlecase }}</h1>
+                <span>{{ Employeeid }}</span>
+            </div>
+        </mat-toolbar>
+        <ng-content></ng-content>
+    </mat-drawer-content>
+</mat-drawer-container>

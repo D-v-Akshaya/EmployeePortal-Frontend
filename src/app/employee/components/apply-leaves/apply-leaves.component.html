@@ -1,0 +1,44 @@
+<form class="example-form" [formGroup]="leaveform">
+
+  <mat-form-field>
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+      <input matStartDate formControlName="start" placeholder="Start date">
+      <input matEndDate formControlName="end" placeholder="End date">
+    </mat-date-range-input>
+    <!-- <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint> -->
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+
+    <mat-error *ngIf="range.get('start')?.invalid">Invalid start date</mat-error>
+    <mat-error *ngIf="range.get('end')?.invalid">Invalid end date</mat-error>
+  </mat-form-field><br>
+
+  <div class="forminline">
+    <mat-label class="example-half-width">Start date: {{ range.value.start | date:'dd/MMM/yyyy EEE' }}</mat-label>
+    <mat-label class="example-half-width">End date: {{ range.value.end | date: 'dd/MMM/yyyy EEE' }}</mat-label>
+
+  </div>
+
+
+  <!-- Display errors for other input fields -->
+  <mat-form-field class="example-full-width">
+    <mat-label>Type of leave</mat-label>
+    <mat-select formControlName="leavetype">
+      <mat-option value="Paid">Paid Leave</mat-option>
+      <mat-option value="Unpaid">Unpaid Leave</mat-option>
+    </mat-select>
+    <mat-error *ngIf="leaveform.get('leavetype')?.invalid">Please select a leave type</mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Reason for leave</mat-label>
+    <textarea matInput formControlName="reason"></textarea>
+    <mat-error *ngIf="leaveform.get('reason')?.invalid">Please provide a reason for leave</mat-error>
+  </mat-form-field>
+
+  <!-- ... Other form fields ... -->
+
+  <button type="submit" (click)="onsubmit()">Submit</button>
+</form>

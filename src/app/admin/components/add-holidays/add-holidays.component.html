@@ -1,0 +1,49 @@
+<div class="title">
+    <h2>Holidays</h2>
+    <button mat-fab extended style="margin-left: auto; background-color: rgb(19, 144, 175); color: aliceblue;"
+        (click)="openAddHolidayForm()">
+        <mat-icon>add</mat-icon>
+        Add Holidays
+    </button>
+</div>
+
+
+<!--   dispaly All holidays in table -->
+<app-table-with-actions [dataSource]="yourDataSource" [displayedColumns]="yourDisplayedColumns"
+    [actionButtons]="holidayActionButtons"></app-table-with-actions>
+
+
+<!--  Add new Holiday form will open as NgModel-->
+<ng-template #addHolidayDialog>
+    <h2 mat-dialog-title class="dialog-title">Add Holiday</h2>
+    <div class="form-container">
+      <form #holidayForm="ngForm">
+        <mat-form-field class="full-width">
+          <mat-label class="form-label">Holiday Name</mat-label>
+          <input matInput placeholder="Enter holiday name" [(ngModel)]="Holiday_Name" name="holidayName" class="form-input" required />
+          <mat-error *ngIf="holidayForm.controls['holidayName']?.invalid && (holidayForm.controls['holidayName']?.dirty || holidayForm.controls['holidayName']?.touched)">
+            Holiday Name is required.
+          </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="full-width">
+          <mat-label class="form-label">Date</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="selectedDate" name="holidayDate" class="form-input" required />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="holidayForm.controls['holidayDate']?.invalid && (holidayForm.controls['holidayDate']?.dirty || holidayForm.controls['holidayDate']?.touched)">
+            Date is required.
+          </mat-error>
+        </mat-form-field>
+        
+        <!-- Rest of the code -->
+      
+        <div class="buttons">
+          <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
+          <button mat-button mat-dialog-close  color="primary" class="save-button" [disabled]="holidayForm.invalid" (click)="saveHoliday()">Add</button>
+        </div>
+      </form>
+      
+    </div>
+  </ng-template>
+  

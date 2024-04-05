@@ -1,0 +1,76 @@
+
+
+.example-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: fit-content;
+  
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.example-half-width {
+    flex-basis: calc(50% - 10px);
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0px;
+}
+
+/* Style mat-form-field */
+mat-form-field {
+    width: 100%;
+}
+
+/* Style mat-select */
+mat-select {
+    width: 100%;
+}
+
+/* Style mat-datepicker-toggle */
+.mat-datepicker-toggle {
+    margin-left: -40px;
+    background-color: transparent;
+    border: none;
+    color: blue;
+    cursor: pointer;
+}
+
+/* Style buttons */
+button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+    
+}
+.header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+button:hover {
+    background-color: #1565c0;
+    color: rgb(238, 59, 59);
+}

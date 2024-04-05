@@ -1,0 +1,17 @@
+<div *ngIf="!loading else loaderShow">
+    <div>
+        <!-- <app-layout-bar  titlename="Admin"  [role]="role" [pagesRoutes]="pagesRoutes">
+            <router-outlet></router-outlet>
+        </app-layout-bar> -->
+        <app-drawer-bar [titlename]="titlename" [role]="role" [pagesRoutes]="pagesRoutes" [Employeeid]="Employeeid">
+            <div class="background-container">
+                <router-outlet></router-outlet>
+            </div>
+        </app-drawer-bar>
+    </div>
+</div>
+<ng-template #loaderShow class="custom-spinner-container">
+    <div class="conatiner">
+         <mat-spinner color="accent"></mat-spinner> 
+    </div>
+</ng-template>

@@ -1,0 +1,34 @@
+
+
+<ng-container *ngIf="!loading; else loadingScreen">
+   
+    <div class="title">
+        <h2>Leaves</h2>
+        <button mat-fab extended style="margin-left: auto; background-color: rgb(19, 144, 175); color: aliceblue;"
+            (click)="openadd()">
+            <mat-icon>add</mat-icon>
+            Add Leaves
+        </button>
+    </div>
+    
+    <ng-container *ngIf="dataLength > 0; else noRecords">
+        <app-table-with-actions [dataSource]="yourDataSource" [displayedColumns]="yourDisplayedColumns">
+        </app-table-with-actions>
+        <mat-paginator style="background-color: none;" [length]="totalLeaves" [pageSize]="5" aria-label="page"
+            (page)="pageChanged($event)">
+        </mat-paginator>
+    </ng-container>
+
+    <ng-template #noRecords>
+        <div>
+            <h1>No Leaves found!</h1>
+        </div>
+    </ng-template>
+
+</ng-container>
+
+<ng-template #loadingScreen>
+    <div>
+        <h1>Loading...</h1>
+    </div>
+</ng-template>

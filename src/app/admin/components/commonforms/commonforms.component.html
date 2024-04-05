@@ -1,0 +1,90 @@
+<form class="example-form" [formGroup]="regform">
+
+    <div mat-dialog- class="header">
+        <h2 mat-dialog-title>{{heading}}</h2>
+         <button (click)="close()" style="background: none;">
+            <mat-icon>cancel</mat-icon>
+         </button>
+    </div>
+
+    <div class="form-row">
+        <mat-form-field class="example-half-width">
+            <mat-label>First Name</mat-label>
+            <input type="text" matInput formControlName="fname">
+        </mat-form-field>
+
+        <mat-form-field class="example-half-width">
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput formControlName="lname">
+        </mat-form-field>
+    </div>
+
+    <div class="example-full-width">
+        <mat-form-field class="example-half-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email">
+        </mat-form-field>
+    </div>
+
+    <div class="example-full-width">
+
+        <mat-form-field class="example-half-width">
+            <mat-label>Password*</mat-label>
+            <input type="password" matInput formControlName="pass">
+        </mat-form-field>
+    </div>
+
+    <div class="form-row">
+        <mat-form-field class="example-half-width">
+            <mat-label>Blood Group</mat-label>
+            <mat-select formControlName="bloodgrp">
+                <mat-option value="A+">A+</mat-option>
+                <mat-option value="A-">A-</mat-option>
+                <mat-option value="B+">B+</mat-option>
+                <mat-option value="B-">B-</mat-option>
+                <mat-option value="AB+">AB+</mat-option>
+                <mat-option value="AB-">AB-</mat-option>
+                <mat-option value="O+">O+</mat-option>
+                <mat-option value="O-">O-</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-half-width">
+            <mat-label>Designation</mat-label>
+            <mat-select formControlName="designation">
+                <mat-option value="HR">HR</mat-option>
+                <mat-option value="Solution-analyst">Solution Analyst</mat-option>
+                <mat-option value="TR">TR</mat-option>
+                <mat-option value="BR">BR</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-row">
+        <mat-form-field class="example-half-width">
+            <mat-label>Contact no.</mat-label>
+            <input type="text" matInput formControlName="contactno">
+        </mat-form-field>
+
+        <mat-form-field class="example-half-width">
+            <mat-label>Date Of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" [max]="maxDate" formControlName="dob">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker startView="year"></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Address</mat-label>
+        <textarea matInput formControlName="address"></textarea>
+    </mat-form-field>
+
+    <label *ngIf="err" style="color: crimson;" [textContent]="error"></label>
+
+    <div class="form-actions">
+        <button type="submit" mat-raised-button style="background-color: blue; color: white;"
+            (click)="onsubmit()">{{buttonText}}</button>
+        <span (click)="clear()" style="color: blue; float: right; text-align: center;">Clear form</span>
+    </div>
+
+</form>

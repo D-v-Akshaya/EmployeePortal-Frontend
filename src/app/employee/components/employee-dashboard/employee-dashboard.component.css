@@ -1,0 +1,32 @@
+
+.profile_container_parts{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .profile_line {
+    display: inline-flex;
+    width: 100%;
+  }
+  
+  .main-card {
+    display: flex;
+    flex-direction: row;
+    width: min-content;
+    background-color: rgb(205, 230, 241);
+  }
+  .main-card img{
+    height: 250px;
+    width: 250px;
+    border-radius: 10px;
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center; 
+  }
+  mat-card{
+    margin: 5px; 
+   padding: 5px;
+   width:max-content;
+  }
+  
